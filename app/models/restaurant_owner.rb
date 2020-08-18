@@ -28,12 +28,23 @@ class Restaurant_owner
 
      #AGGREGATE & ASSOCIATION
 
+     #return the average age of all restaurant owners 
      def average_age 
-        self.age.reduce(0){ |sum, age| sum + (age.owner/self.age.count) }
+        self.age.reduce(0){ |sum, age| sum + (age.restaurant_owner/self.age.count) }
      end 
 
+     #Transfer ownership of a restaurant to a buyer --> restrautant MUST belong to current owner/user
+     #@ Caryn at a loss here
+     #Conditionals required to check if current user owns restaurant
      def sell_restaurant(restaurant, buyer)
-        #@ Caryn at a loss here
-     end 
+        if restaurant_owner.include?(restaurant)
+            #Then can sell to buyer / new restaurant owner 
+            Restaurant_owner.new(name, age)
+        else #if current user does not own restaurant
+            buyer_to_update = self.restaurant_owner.find { |buyer| buyer.restaurant == restaraunt_owner}
+            buyer_to_update = restaraunt_owner
+        end 
+    end 
+
 
 end 
