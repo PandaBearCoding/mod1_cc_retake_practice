@@ -34,8 +34,7 @@ class Recipe
     def price 
         Menu_item.all.filter do |price|
           price.recipe == self #Recipe is self
-        end
-      end 
+    end 
 
     #0 = initial sum
     #We want all prices for the current recipe - a specific instance
