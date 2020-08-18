@@ -18,12 +18,16 @@ class Menu_item
 
     #return array of all owner (restaurant_owner) instances for menu_item
     def owner 
+        # CARYN SAYS: there's an easier way! you know which restaurant the MenuItem belongs to
+        # and the restaurant belongs to an owner
+        # so we can self.restaurant.owner ! 
         Restaurant_owner.all.filter do |owner|
             owner.menu_item == self #menu_item is self 
     end 
 
     # helper for the most_expensive class method 
 
+    # CARYN SAYS: you over complicated this one a lil bit! most expensive didn't need you to do any averaging! 
     def average_price
         self.menu_item.reduce(0){ |sum, price| sum + (price.rating/self.menu_item.count) }
     end 
