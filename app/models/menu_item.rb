@@ -14,6 +14,9 @@ class Menu_item
         @@all
     end
 
+    #OO
+
+    #return array of all owner (restaurant_owner) instances for menu_item
     def owner 
         Restaurant_owner.all.filter do |owner|
             owner.menu_item == self #menu_item is self 

@@ -13,13 +13,15 @@ class Recipe
         @@all
     end 
 
-    #return array of all menu_items for recipe 
+    #OO 
+    
+    #return array of all menu_item instances for Recipe  
     def menu_items 
         Menu_item.all.filter do |menu_item|
             menu_item.recipe == self #recipe is self 
     end 
 
-     #return array of all restaurants for recipe 
+     #return array of all restaurant instances for recipe
     def restaurants
         Restaurant.all.filter do |restaurant|
             restaurant.recipe == self #recipe is self 
