@@ -7,8 +7,6 @@ def reload
 end
 
 
-
-
 madeline = Restaurant_owner.new("Madeline", 25)
 derek = Restrautant_owner.new("Derek", 29)
 
@@ -19,7 +17,7 @@ item1 = Menu_item.new(flame, cake, 20) # needs objects passed in --> instances a
 item2 = Menu_item.new(pastabilities, cookie, 5)
 
 rec1 = Recipe.new("cake", "chocolate everything") # needs objects passed in --> instances are created, now we can use objects
-rec2 = Recipe.new("cookie", "giant, NO raisons")exit
+rec2 = Recipe.new("cookie", "giant, NO raisons")
 
 
 
