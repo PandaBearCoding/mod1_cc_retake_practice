@@ -29,7 +29,7 @@ class Restaurant_owner
      end 
 
      def sell_restaurant(restaurant, buyer)
-        
+        #@ Caryn at a loss here
      end 
 
 
