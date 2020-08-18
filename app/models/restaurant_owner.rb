@@ -32,6 +32,4 @@ class Restaurant_owner
         #@ Caryn at a loss here
      end 
 
-
-
 end 
