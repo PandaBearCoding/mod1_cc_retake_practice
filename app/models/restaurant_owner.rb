@@ -34,12 +34,24 @@ class Restaurant_owner # CARYN SAYS: should be RestaurantOwner!
      def average_age # CARYN SAYS: this should be a class method! 
         # CARYN SAYS: it will need to get the average age of all RestaurantOwner instances
         # ? How can you access all RestaurantOwner instances ? Then think reduce!
-        self.age.reduce(0){ |sum, age| sum + (age.owner/self.age.count) }
+        #     self.age.reduce(0){ |sum, age| sum + (age.owner/self.age.count) }
+        #  #return the average age of all restaurant owners 
+        #  def average_age 
+        self.age.reduce(0){ |sum, age| sum + (age.restaurant_owner/self.age.count) }
      end 
 
+     #Transfer ownership of a restaurant to a buyer --> restrautant MUST belong to current owner/user
+     #@ Caryn at a loss here
+     #Conditionals required to check if current user owns restaurant
      def sell_restaurant(restaurant, buyer)
-        # CARYN SAYS: lets chat! 
-        #@ Caryn at a loss here
-     end 
+        if restaurant_owner.include?(restaurant)
+            #Then can sell to buyer / new restaurant owner 
+            Restaurant_owner.new(name, age)
+        else #if current user does not own restaurant
+            buyer_to_update = self.restaurant_owner.find { |buyer| buyer.restaurant == restaraunt_owner}
+            buyer_to_update = restaraunt_owner
+        end 
+    end 
+
 
 end 
