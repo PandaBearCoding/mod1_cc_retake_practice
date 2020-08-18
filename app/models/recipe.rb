@@ -1,3 +1,5 @@
+require 'pry'
+
 class Recipe 
     attr_reader :name
     attr_accessor :description
@@ -42,20 +44,21 @@ class Recipe
         self.menu_item.reduce(0){ |sum, price| sum + (menu_item.price/self.menu_item.count) }
     end 
 
+    
+    #We want to return a recipe instance with the highest average price --> one recipe instance with the highest average price 
+    #***What have I already created? --> average_price ***
     def highest_price
-        #return a recipe instance with the highest average price 
-        #want one recipe instance w/ highest average price
-        #what have I already created?
         Recipe.all.max { |recipe_a, recipe_b| recipe_a.average_price <=> recipe_b.average_price }
     end 
 
+    #Opposite of highest_price, still leveraging average_price
     def cheapest_price
         Recipe.all.min { |recipe_a, recipe_b| recipe_a.average_price <=> recipe_b.average_price }
     end 
 
+    #This is a class method 
+    #We want to return array of recipes not being sold --> not a menu_items
     def Recipe.inactive
-        #class
-        #return array of recipes not being sold --> not a menu_items
         if menu_items.!include?(recipe)
             Recipe.inactive = self.recipe.find {|menu_item| menu_item.recipe == recipe}
         end 
@@ -63,3 +66,5 @@ class Recipe
 
 
 end 
+
+binding.pry
