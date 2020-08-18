@@ -14,7 +14,7 @@ class Recipe
     end 
 
     #OO 
-    
+
     #return array of all menu_item instances for Recipe  
     def menu_items 
         Menu_item.all.filter do |menu_item|
@@ -27,19 +27,19 @@ class Recipe
             restaurant.recipe == self #recipe is self 
     end 
 
-    # AGGREGATE & ASSOCIATION
-    
-    def price #need this helper method to do variations of price methods
+    #AGGREGATE & ASSOCIATION
+    #This is a helper method to do variations of price methods(i.e., avergae, highest, cheapest)
+    def price 
         Menu_item.all.filter do |price|
           price.recipe == self #Recipe is self
         end
       end 
 
+    #0 = initial sum
+    #We want all prices for the current recipe - a specific instance
+    #Ruby will look within this class for price - acting on current instance and calling the instance price method 
     def average_price
-        #0 = initial sum
-        #Want all prices for the current recipe - a specific instance
-        # looks within this class for price - acting on current instance and calls the instances price method
-        self.menu_item.reduce(0){ |sum, price| sum + (price.rating/self.menu_item.count) }
+        self.menu_item.reduce(0){ |sum, price| sum + (menu_item.price/self.menu_item.count) }
     end 
 
     def highest_price
